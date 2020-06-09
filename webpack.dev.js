@@ -12,7 +12,7 @@ module.exports = merge( common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/template.html'
+            template: 'html-loader?interpolate!./src/template.html'
         }),
         new CopyWebpackPlugin([
             { from: 'src/snd', to: 'snd'},

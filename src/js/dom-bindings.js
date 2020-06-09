@@ -93,14 +93,33 @@ document.querySelectorAll('.track').forEach( (track, trackNum) => {
         }
     })
 })
+
+// steps (hover)
+document.querySelector('#steps').addEventListener('mousedown', e => {
+    
+})
+
+
 // steps
 document.querySelectorAll('.step').forEach( (element, stepNum) => { 
-    element.addEventListener('click', e => 
+    element.addEventListener('mousedown', e => 
         stateManager.dispatch({
             type: "stepToggle",
             stepNum
         })
     );
+    // function mouseoverHandler (e) {
+    //     console.log(stepNum);
+    // }
+    // element.addEventListener('mousedown', e => {
+    //     element.addEventListener('mouseenter', mouseoverHandler)
+    //     console.log('mouse')
+    // });
+    // document.addEventListener('mouseup', _ => {
+    //     console.log('mouse up')
+    //     element.removeEventListener('mouseenter', mouseoverHandler);
+    // });
+
     stateManager.subscribe( (state) => {
         const active = state.sequences[state.pattern][state.instrument][stepNum] === 1;
         if ( active ) {
@@ -122,7 +141,7 @@ document.querySelectorAll('.step').forEach( (element, stepNum) => {
 
 // pattern pads
 document.querySelectorAll('.pattern-pad').forEach( (element, patternNum) => {
-    element.addEventListener('click', e => 
+    element.addEventListener('mousedown', e => 
         stateManager.dispatch({
             type: "patternSelect",
             patternNum
@@ -154,6 +173,7 @@ document.querySelector('#stop').addEventListener('click', e => {
     })
 });
 
+// tempo
 document.querySelector('#tempo-pot').addEventListener('mousedown', 
     makeDragHandler("vertical", value => 
         stateManager.dispatch({
@@ -162,6 +182,15 @@ document.querySelector('#tempo-pot').addEventListener('mousedown',
         })
     )
 )
+
+stateManager.subscribe( state => {
+    // display
+    document.querySelector('#tempo-segments').textContent = '' + state.tempo.toFixed(0);
+    // pot cursor
+    const angle = map( state.tempo, constants.TEMPO_MIN, constants.TEMPO_MAX, 45, 315 );
+    document.querySelector('#tempo-pot .pot-cursor').setAttribute('style', `transform: rotate(${angle}deg);`)
+})
+
 
 // space bar -> PLAY
 document.addEventListener('keydown', e => {
@@ -186,14 +215,3 @@ stateManager.subscribe( state => {
         document.querySelector('#rec').classList.remove('active');
     }
 })
-
-// tempo
-stateManager.subscribe( state => {
-    // display
-    document.querySelector('#tempo-display').textContent = '' + state.tempo.toFixed(0);
-    // pot cursor
-    const angle = map( state.tempo, constants.TEMPO_MIN, constants.TEMPO_MAX, 45, 315 );
-    document.querySelector('#tempo-pot .pot-cursor').setAttribute('style', `transform: rotate(${angle}deg);`)
-})
-
-// initialization included in singleSourceOfTruth factory

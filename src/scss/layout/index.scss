@@ -11,9 +11,9 @@
     @include flex(column);
 }
 #steps {
-    @include flex(row);
     height: 100px;
     width: 100%;
+    @include flex(row);
 }
 #panel {
     height: $height - $step-height;
@@ -78,6 +78,10 @@
     text-align: right;
     user-select: none;
     background-color: black;
+    @include flex(column);
+}
+#tempo-segments {
+    padding-top: 7px;
 }
 #groove {
     height: 50%;
