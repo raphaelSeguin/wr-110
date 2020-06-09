@@ -6,7 +6,7 @@ I used vanilla JavaScript, HTML and SASS.
 
 WebPack brings ES6 modules, modular HTML and compiles Sass.
 
-![TR808](https://commons.wikimedia.org/wiki/File:Roland_TR-808_(large).jpg#/media/File:Roland_TR-808_(large).jpg)
+![TR808](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Roland_TR-808_%28large%29.jpg/1200px-Roland_TR-808_%28large%29.jpg)
 
 
 Start the development server
