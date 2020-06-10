@@ -9,7 +9,7 @@ import { faderCurve, pitchToRate, map } from './helpers.js';
 
 const audioContext = new AudioContext();
 
-const sndPath = '/snd/'
+const sndPath = '/wr-110/snd/'
 
 const soundsList = [
     'kick.wav',
