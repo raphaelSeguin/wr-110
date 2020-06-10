@@ -1,6 +1,7 @@
 # wr-110
 
 Web Rythm 110 is a beat box inspired by the canonical TR serie by Roland.
+[Try it live !](https://raphaelseguin.github.io/wr-110/)
 
 I used vanilla JavaScript, HTML and SASS.
 
