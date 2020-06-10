@@ -9,7 +9,7 @@ export const initialState = {
         ),
     // params[track][paramNum]
     params: Array(8).fill().map( p => Array(4).fill(0.5) ),
-    faders: Array(8).fill(0),
+    faders: Array(8).fill(0.5),
     instrument: 0, // (0 - 7) 0 -> Bass Drum, 1 -> Snare, etc.
     pattern: 0, // (0 - 7)
     playing: false,
